@@ -1,4 +1,5 @@
 function getArrayParams(...arr) {
+	if (arr.length === 0) return 0;
 
 	const min = Math.min(...arr);
 	const max = Math.max(...arr);
@@ -13,14 +14,9 @@ function getArrayParams(...arr) {
 }
 
 function summElementsWorker(...arr) {
-
 	if (arr.length === 0) return 0;
-
-	const sum = arr.reduce((acc, curr) => acc + curr, 0);
-
-	return {
-		sum
-	};
+  	
+	return arr.reduce((sum, current) => sum + current, 0);
 }
 
 function differenceMaxMinWorker(...arr) {
@@ -37,7 +33,6 @@ function differenceMaxMinWorker(...arr) {
 }
 
 function differenceEvenOddWorker(...arr) {
-
 	if (arr.length === 0) return 0;
 
 	let sumEvenElement = 0;
@@ -54,7 +49,6 @@ function differenceEvenOddWorker(...arr) {
 }
 
 function averageEvenElementsWorker(...arr) {
-
 	if (arr.length === 0) return 0;
 
 	let sumEvenElement = 0;
