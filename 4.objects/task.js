@@ -9,11 +9,10 @@ Student.prototype.setSubject = function(subjectName) {
 	this.subject = subjectName;
 }
 
-Student.prototype.addMarks = function(...marks) {
-	if (!this.marks) {
-		return;
+Student.prototype.addMarks = function(...marksToAdd) {
+	if (this.hasOwnProperty('marks') && this.marks !== undefined) {
+		this.marks.push(...marksToAdd);
 	}
-	this.marks.push(...marksToAdd);
 }
 
 Student.prototype.getAverage = function() {
