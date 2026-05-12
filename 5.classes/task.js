@@ -83,3 +83,26 @@ class Library {
     return null;
   }
 }
+
+const myLibrary = new Library("Моя библиотека");
+
+myLibrary.addBook(new DetectiveBook("Артур Конан Дойл", "Затерянный мир", 1912, 320));
+myLibrary.addBook(new FantasticBook("Джек Лондон", "Мартин Иден", 1909, 416));
+myLibrary.addBook(new FantasticBook("Станислав Лем", "Солярис", 1961, 288));
+
+let oldBook = myLibrary.findBookBy("releaseDate", 1919);
+if (!oldBook) {
+  myLibrary.addBook(new NovelBook("Герман Гессе", "Демиан", 1919, 224));
+}
+
+const issuedBook = myLibrary.giveBookByName("Солярис");
+console.log("Выдана книга: " + issuedBook.name);
+
+issuedBook.state = 20;
+console.log("Состояние после повреждения: " + issuedBook.state);
+
+issuedBook.fix();
+console.log("Состояние после ремонта: " + issuedBook.state);
+
+myLibrary.addBook(issuedBook);
+console.log("Книг в библиотеке: " + myLibrary.books.length);
